@@ -3,18 +3,18 @@ import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 
 import { io } from 'socket.io-client';
-import { Params, useParams } from 'react-router-dom';
+
 
 const toolbarOptions = [];
 function Editors(props) {
 	const [socket, setSocket] = useState();
 	const [quill, setQuill] = useState();
-	const { id } = useParams();
+	const id=props.id;
 	useEffect(() => {
-		const quillServer = new Quill('#container', {
+		const quillServer = new Quill(`#${id}`, {
 			modules: { toolbar: toolbarOptions },
 		});
-		//quillServer.disable();
+		quillServer.disable();
 		quillServer.setText('Loading.....');
 		setQuill(quillServer);
 	}, []);
@@ -72,8 +72,8 @@ function Editors(props) {
 		};
 	}, [socket, quill]);
 	return (
-		<div>
-			<div className='container' id='container'></div>
+		<div className={`${id}`}>
+			<div className={`container+${id}`} id={`${id}`}></div>
 		</div>
 	);
 }
