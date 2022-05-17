@@ -4,10 +4,11 @@ import Container from './components/kidhar_hai_bhai/container';
 import Football from './components/kidhar_hai_bhai/football';
 import Gym from './components/kidhar_hai_bhai/gym';
 import SamjhaKar from './components/kidhar_hai_bhai/samjhakaro';
+import Event from './components/party_kab_hai/event.js';
 function App() {
 	return (
 		<div className='App'>
-			<div>hii</div>
+			<Event/>
 			<Container><Basketball/></Container>
 			<Container><Football/></Container>
 			<Container><Gym/></Container>
