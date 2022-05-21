@@ -1,0 +1,28 @@
+.sidenav {
+    background-color: #ff6363;
+    width: 20vw;
+    height: 80vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    
+    align-items: center;
+
+    .sideheader {
+        height: 20vh;
+    }
+
+    .nav_main {
+        position: relative;
+        margin-top: 20vh;
+    }
+
+    .footer {
+        font-size: 14px;
+    }
+}
+
+$highlight-color: #ff6363 !default;
+$icon-size: 50px !default;
+
+@import '~react-pro-sidebar/dist/scss/styles.scss';
