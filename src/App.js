@@ -9,26 +9,37 @@ import { auth } from './firebase/firebaseconfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Signin from './pages/signin.js';
 import Navbar from './components/sidenav/sidenav.js';
-import {useEffect,useState} from 'react'
+import { useEffect, useState } from 'react';
 function App() {
-	const [user,loading,error] = useAuthState(auth);
-	const [profile,setUser]= useState(null);
+	const [user, loading, error] = useAuthState(auth);
+	const [profile, setUser] = useState(null);
 	useEffect(() => {
 		setUser(user);
-	},[user]);
+	}, [user]);
 	return (
 		<div className='App'>
-		    <Navbar profile={profile}/>
-			{!profile?<Signin/>:(<div>
-			<Event/>
-			<Container><Basketball/></Container>
-			<Container><Football/></Container>
-			<Container><Gym/></Container>
-			<Container><SamjhaKar/></Container>
+			<Navbar profile={profile} />
+			<div className='main-page'>
+				{!profile ? (
+					<Signin />
+				) : (
+					<>
+						<Event />
+						<Container>
+							<Basketball />
+						</Container>
+						<Container>
+							<Football />
+						</Container>
+						<Container>
+							<Gym />
+						</Container>
+						<Container>
+							<SamjhaKar />
+						</Container>
+					</>
+				)}
 			</div>
-			)
-	}
-			
 		</div>
 	);
 }
