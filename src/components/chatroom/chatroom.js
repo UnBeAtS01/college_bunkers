@@ -2,13 +2,18 @@ import { firestore, auth } from '../../firebase/firebaseconfig.js';
 import firebase from 'firebase/app';
 //import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 import './chatroom.scss';
 const ChatRoom = () => {
 	const messagesRef = firestore.collection('messages');
 	const query = messagesRef.orderBy('createdAt').limit(200);
 	const [messages] = useCollectionData(query, { idField: 'id' });
-	//console.log(messages);
+	const [messagedata, setMessage] = useState(null);
+	useEffect(() => {
+		setMessage(messages);
+	}, [messages]);
+	console.log(messages);
 	const [formValue, setFormValue] = useState('');
 	const sendMessage = async (e) => {
 		e.preventDefault();
@@ -26,7 +31,9 @@ const ChatRoom = () => {
 	};
 	return (
 		<div className='chatroom'>
-			<div className='chatroom-chats'>{messages && messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}</div>
+			<div className='chatroom-chats'>
+				{auth.currentUser && messagedata && messagedata.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
+			</div>
 			<div className='chatroom-input-div'>
 				<form className='chatroom-input' onSubmit={sendMessage}>
 					<div className='chatroom-input-text-div'>
@@ -47,16 +54,18 @@ const ChatRoom = () => {
 
 function ChatMessage(props) {
 	const { text, uid, photoURL } = props.message;
-	const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
+	const messageClass = auth.currentUser && uid === auth.currentUser.uid ? 'sent' : 'received';
 	return (
 		<div className={`message ${messageClass}`}>
 			<div className='image-div'>
 				{' '}
 				<img className='image' src={photoURL} alt='profilepic' />
 			</div>
-			<span className='text'>
-				<p>{text}</p>
-			</span>
+			<div className='text-div'>
+				<span className='text'>
+					<p>{text}</p>
+				</span>
+			</div>
 		</div>
 	);
 }

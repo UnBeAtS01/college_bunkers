@@ -10,8 +10,10 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import Signin from './pages/signin.js';
 import Navbar from './components/sidenav/sidenav.js';
 import { useEffect, useState } from 'react';
+import ChatRoom from './components/chatroom/chatroom';
+import CollegeNotice from './components/college_notice/clg_notice';
 function App() {
-	const [user, loading, error] = useAuthState(auth);
+	const [user] = useAuthState(auth);
 	const [profile, setUser] = useState(null);
 	useEffect(() => {
 		setUser(user);
@@ -37,6 +39,8 @@ function App() {
 						<Container>
 							<SamjhaKar />
 						</Container>
+						<ChatRoom />
+						<CollegeNotice />
 					</>
 				)}
 			</div>
