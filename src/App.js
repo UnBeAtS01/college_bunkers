@@ -12,6 +12,7 @@ import Navbar from './components/sidenav/sidenav.js';
 import { useEffect, useState } from 'react';
 import ChatRoom from './components/chatroom/chatroom';
 import CollegeNotice from './components/college_notice/clg_notice';
+import VoteCard from './components/Polling/voteCard';
 function App() {
 	const [user] = useAuthState(auth);
 	const [profile, setUser] = useState(null);
@@ -41,6 +42,7 @@ function App() {
 						</Container>
 						<ChatRoom />
 						<CollegeNotice />
+						<VoteCard />
 					</>
 				)}
 			</div>

@@ -11,6 +11,6 @@ export const getNotice = async () => {
 	});
 	//console.log(val);
 
-	console.log(val.data);
+	//console.log(val.data);
 	return val.data;
 };

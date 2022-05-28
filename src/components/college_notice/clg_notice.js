@@ -5,7 +5,7 @@ const CollegeNotice = () => {
 	useEffect(() => {
 		const getcollegeNotice = async () => {
 			const element = await getNotice();
-			console.log(element);
+			//console.log(element);
 			setNotice(element);
 		};
 		getcollegeNotice();
