@@ -1,7 +1,7 @@
 .sidenav {
-    background-color: #ff6363;
+    background: transparent;
     width: 5vw;
-    height: 80vh;
+    height: fit-content;
     position: sticky;
     top: 0;
     display: flex;
@@ -10,19 +10,38 @@
 
     .sideheader {
         height: 20vh;
+        padding-top: 10px;
+        .image_profile{
+            height: 80px;
+           
+            font-family: 'Archivo', sans-serif;
+font-family: 'Exo', sans-serif;
+            img{
+                height: 75px;
+                border-radius:50%;  
+                    
+              }
+            .text{
+                font-size: 14px;
+            }
+        }
     }
-
+   
     .nav_main {
         position: relative;
-        margin-top: 20vh;
+        margin-top: 10vh;
+        background-color: rgb(36,25,33);
     }
 
     .footer {
-        font-size: 14px;
+        font-size: 10px;
+        padding-top:10px;
+        font-family: 'Archivo', sans-serif;
+font-family: 'Exo', sans-serif;
     }
 }
 
 $highlight-color: #ff6363 !default;
-$icon-size: 50px !default;
+$icon-size: 40px !default;
 
 @import '~react-pro-sidebar/dist/scss/styles.scss';

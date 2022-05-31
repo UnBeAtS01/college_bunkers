@@ -33,7 +33,8 @@ const CreateVote = () => {
 		array[1].createdAt = new Date();
 		for (let i = 2; i < options.length; i++) if (options[i].option == '') valid = 0;
 		if (val && valid) {
-			await messagesRef.add({ array });
+			const votecastby = [];
+			await messagesRef.add({ array, votecastby });
 			console.log('data added');
 		}
 	};

@@ -1,6 +1,6 @@
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarFooter } from 'react-pro-sidebar';
 import SignOut from '../../pages/signout.js';
-import { FaGem, FaHeart } from 'react-icons/fa';
+import { FaHouseDamage, FaMusic, FaHeart, FaRocketchat, FaMapMarkerAlt } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import { auth } from '../../firebase/firebaseconfig.js';
 import './sidenav.scss';
@@ -21,31 +21,34 @@ const Navbar = ({ profile }) => {
 			<ProSidebar className='nav_main' collapsed={true} collapsedWidth={'70'}>
 				{profile ? (
 					<SidebarHeader className='sideheader'>
-						<div>
+						<div className='image_profile'>
 							<img src={pic} alt='profile-pic' />
-							{name}
+							<span className='text'>{name}</span>
 						</div>
 					</SidebarHeader>
 				) : (
 					''
 				)}
 				<Menu iconShape='circle'>
-					<MenuItem icon={<FaGem />}>Dashboard</MenuItem>
-					<SubMenu title='Components' icon={<FaHeart />}>
-						<MenuItem>Component 1</MenuItem>
-						<MenuItem>Component 2</MenuItem>
-					</SubMenu>
-					<MenuItem icon={<FaGem />}>Dashboard</MenuItem>
-					<MenuItem icon={<FaGem />}>Dashboard</MenuItem>
+					<MenuItem icon={<FaHouseDamage />}>Dashboard</MenuItem>
+					<MenuItem title='Components' icon={<FaMusic />}>
+						FaMusic
+					</MenuItem>
+					<MenuItem icon={<FaRocketchat />}>Dashboard</MenuItem>
+					<MenuItem icon={<FaMapMarkerAlt />}>Dashboard</MenuItem>
 					{profile != null ? <SignOut /> : ''}
 				</Menu>
 				<SidebarFooter>
 					<div className='footer'>
-						Made with LOVE
+						<div style={{ textAlign: 'center' }}>Made with</div>
 						<br />
-						By
+						<div style={{ textAlign: 'center' }}>
+							<FaHeart style={{ fontSize: 18, color: '#FF0000' }} />
+						</div>
 						<br />
-						ankitsinha
+						<div style={{ textAlign: 'center' }}>By</div>
+						<br />
+						<div style={{ textAlign: 'center' }}>ANKIT SINHA</div>
 					</div>
 				</SidebarFooter>
 			</ProSidebar>
