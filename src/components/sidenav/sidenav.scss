@@ -1,19 +1,17 @@
 .sidenav {
-    background: transparent;
-    width: 5vw;
-    height: fit-content;
-    position: sticky;
-    top: 0;
-    display: flex;
     
+    background: transparent;
+    height: fit-content;
+    position: fixed;
+    top:0px;
+    left: 0px;
+    display: flex;
     align-items: center;
-
     .sideheader {
         height: 20vh;
         padding-top: 10px;
         .image_profile{
             height: 80px;
-           
             font-family: 'Archivo', sans-serif;
 font-family: 'Exo', sans-serif;
             img{
@@ -43,5 +41,4 @@ font-family: 'Exo', sans-serif;
 
 $highlight-color: #ff6363 !default;
 $icon-size: 40px !default;
-
 @import '~react-pro-sidebar/dist/scss/styles.scss';

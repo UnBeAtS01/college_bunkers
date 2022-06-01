@@ -7,12 +7,13 @@ import SamjhaKar from './components/kidhar_hai_bhai/samjhakaro';
 import Event from './components/party_kab_hai/event.js';
 import { auth } from './firebase/firebaseconfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import Signin from './pages/signin.js';
+
 import Navbar from './components/sidenav/sidenav.js';
 import { useEffect, useState } from 'react';
 import ChatRoom from './components/chatroom/chatroom';
 import CollegeNotice from './components/college_notice/clg_notice';
 import VoteCard from './components/Polling/voteCard';
+import HomePage from './pages/homepage.js';
 function App() {
 	const [user] = useAuthState(auth);
 	const [profile, setUser] = useState(null);
@@ -24,7 +25,7 @@ function App() {
 			<Navbar profile={profile} />
 			<div className='main-page'>
 				{!profile ? (
-					<Signin />
+					<HomePage />
 				) : (
 					<>
 						<Event />
