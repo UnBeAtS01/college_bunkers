@@ -34,10 +34,33 @@ font-family: 'Cedarville Cursive', cursive;
             font-weight: 450;
             text-align: center;
         }
+        .first_div_follow{
+            //background-color: #6C63FF;
+            padding-top: 10px;
+            width: 30%;
+            font-size:18px;
+            font-family: 'Open Sans', sans-serif;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+        .first_div_logo{
+            font-size: 30px;
+            z-index:5;
+            &:hover{
+                background-color: rgb(222, 222, 222);
+                border-radius:50%;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+                transform: scale(1.1);
+            }
+        }
 
     }
     .second_div{
        // background-color: pink;
+        //padding-top:20px;
         align-self: flex-end;
         width: 50%;
         height: 100vh;
@@ -75,7 +98,17 @@ font-family: 'Cedarville Cursive', cursive;
 
     }
     .first_div_heading{
-      font-size:18px !important;
+      font-size:2vw !important;
 
+    }
+    .first_div_follow{
+        width: 100% !important;
+        font-size: 1vw !important;
+    }
+    .first_div_text{
+        font-size:3vw !important;
+    }
+    .first_div_logo{
+        font-size: 4vw !important;
     }
 }

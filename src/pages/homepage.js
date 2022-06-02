@@ -11,10 +11,10 @@ const HomePage = () => {
 					<div style={{ paddingLeft: 10 }}>#BUNKERS</div>
 				</div>
 				<div className='first_div_heading'>making college easy...</div>
-				<div className='first_div_text'>Trying simplifying college lyf by bringing everything together.created by student for student</div>
-				<div className='first_div_folow'>
-					follow me on: <FaGithub />
-					<FaLinkedin />
+				<div className='first_div_text'>Trying simplifying college lyf by bringing everything together.created by student for students</div>
+				<div className='first_div_follow'>
+					<span>follow me on:</span> <FaGithub className='first_div_logo' />
+					<FaLinkedin className='first_div_logo' />
 				</div>
 				<Signin />
 			</div>

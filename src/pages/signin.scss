@@ -2,24 +2,51 @@
     display: flex;
     justify-content: space-around;
     //width: 300px;
-    border: 1px solid black;
+    //border: 1px solid black;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
    &:hover{
       // background-color: black;
+      background-color:transparent;
+      box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
        cursor: pointer;
-       background-color: aliceblue;
-       box-sizing: 1.5;
        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+       img{
+           background-color:transparent;
+           transform: scale(1.1);
+       }
    }
+   
     button{
         text-decoration: none;
         border: none;
         background:transparent;
+
         &:hover{
             cursor: pointer;
-            background-color: aliceblue;
+           // background-color: aliceblue;
             box-sizing: 1.5;
             box-shadow: 5px;
+        }
+    }
+}
+@media screen and (min-width:600px) and (max-width:1000px) {
+    .main-signin_div{
+        img{
+            width: 40px !important;
+        }
+        button{
+            font-size: 22px !important;
+        }
+    }
+   
+}
+@media screen and (max-width:599px){
+    .main-signin_div{
+        img{
+            width: 4vw !important;
+        }
+        button{
+            font-size: 3vw !important;
         }
     }
 }
