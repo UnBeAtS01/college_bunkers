@@ -5,7 +5,8 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 //import { useEffect } from 'react';
 //import { getEvent } from '../../apicalls/eventcall';
 import nothing from '../../assets/nothing3.gif';
-
+import './event.scss';
+import partysvg from '../../assets/party_hai.svg';
 const Event = () => {
 	const defaultimage = 'https://i.imgur.com/gkPgT6a.gif';
 	const [date, setEventdate] = useState('2001-07-13');
@@ -42,6 +43,8 @@ const Event = () => {
 				event_image: eventImage !== null ? eventImage : defaultimage,
 				date: date,
 			});
+			setEvent('');
+			setEventimg(null);
 			console.log('event added');
 		} else {
 			alert('wrong input format');
@@ -59,18 +62,22 @@ const Event = () => {
 		setEventimg(e.target.value);
 	};
 	return (
-		<>
+		<div className='event_main_div'>
+			<div className='event_heading'>Upcomming Event</div>
 			<div className='event_image'>
 				<img src={`${upcommingevent ? upcommingevent[0].event_image : defaultimage}`} alt='loading...' />
-				<div>{upcommingevent ? upcommingevent[0].text : 'No Event'}</div>
+				<div className='event_name'>
+					{upcommingevent ? upcommingevent[0].text : 'No Event'}
+					<img className='party_svg' src={partysvg} alt='img_party' />
+				</div>
 			</div>
-			<div>
+			<div className='input_event'>
 				<input type='text' name='event_name' value={event} onChange={setText} placeholder='enter upcoming event' />
 				<input type='date' name='event_date' value={date} onChange={setDate} />
 				<input type='url' name='event-image' value={eventImage} onChange={setImage} placeholder='url for gif or image' />
 				<button onClick={handleClick}>+ADD</button>
 			</div>
-		</>
+		</div>
 	);
 };
 

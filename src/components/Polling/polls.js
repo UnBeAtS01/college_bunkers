@@ -28,29 +28,42 @@ const ShowPolls = () => {
 		}
 	};
 	return (
-		<div>
+		<div className='All_polls'>
 			{upcommingPolls &&
 				upcommingPolls.map((ele, idx) => {
-					console.log(ele);
 					return (
-						ele.array &&
-						ele.array.map((inside, idx2) => {
-							if (idx2 == 1) return;
-							if (idx2 == 0) return <div key={idx2}>{inside.question}</div>;
-							else
-								return (
-									<div className='polls_container'>
-										<div className='vote_display' key={idx2} onClick={() => handleVote(ele.id, idx2, ele.array, ele.votecastby)}>
-											{inside.option}
-											<div
-												className='show_percentage'
-												style={{ width: `${Math.floor((inside.vote / Math.max(1, ele.votecastby.length)) * 100)}%` }}
-											></div>
-										</div>
-										<div className='percentage_div'>{Math.floor((inside.vote / Math.max(1, ele.votecastby.length)) * 100)}</div>
-									</div>
-								);
-						})
+						<div className='each_card'>
+							{ele.array &&
+								ele.array.map((inside, idx2) => {
+									if (idx2 == 1) return;
+									if (idx2 == 0)
+										return (
+											<div className='question_div' key={idx2}>
+												{inside.question}
+											</div>
+										);
+									else
+										return (
+											<div className='polls_container'>
+												<div
+													className='vote_display'
+													key={idx2}
+													onClick={() => handleVote(ele.id, idx2, ele.array, ele.votecastby)}
+												>
+													<div style={{ position: 'absolute', left: '2%', bottom: '0px', zIndex: 20 }}>{inside.option}</div>
+
+													<div
+														className='show_percentage'
+														style={{ width: `${Math.floor((inside.vote / Math.max(1, ele.votecastby.length)) * 100)}%` }}
+													></div>
+												</div>
+												<div className='percentage_div'>
+													{Math.floor((inside.vote / Math.max(1, ele.votecastby.length)) * 100)}%
+												</div>
+											</div>
+										);
+								})}
+						</div>
 					);
 				})}
 		</div>

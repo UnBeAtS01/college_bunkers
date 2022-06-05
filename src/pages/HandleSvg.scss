@@ -1,0 +1,145 @@
+
+#paper2{
+animation: movex 4s ease-in-out infinite alternate-reverse;  
+transform-origin: center; 
+transform-box: fill-box;
+}
+#message1,#whitemessage#messageback,#backmessageback {
+    animation: girlshands 5s ease-in-out infinite alternate-reverse;
+}
+#messageback,#backmessageback{
+    animation: messages 5s ease-in-out infinite alternate-reverse;
+}
+
+#fronthand{
+    animation: girlshand 4s ease-in-out infinite alternate-reverse;
+    transform-origin: center; 
+    transform-box: fill-box;
+}
+#hair,#hairboy{
+    animation: hairs 4s ease-in-out infinite alternate-reverse;
+    transform-origin: center; 
+    transform-box: fill-box;
+}
+
+#frame1ladki{
+    animation: frame 6s ease-in-out infinite alternate-reverse;
+}
+
+#orange2{
+    animation: oranges 4s ease-in-out infinite alternate-reverse;
+  
+}
+#orangeball{
+    animation: orangesball 4s ease-in-out infinite alternate-reverse;
+  
+}
+#seconddot{
+    animation: dot1 5s ease-in-out infinite forwards;
+}
+#firstdot{
+    animation: dot2 5s ease-in-out infinite forwards;
+}
+#thirddot{
+    animation: dot3 5s ease-in-out infinite forwards;
+}
+@keyframes movex{
+    0%{
+        transform: translate(0px,0px);
+        transform: rotateZ(0deg) scaleX(1);
+    }
+    100%{
+        transform: translate(2px,-30px);
+        transform: rotateZ(5deg) scaleX(1.4);
+    }
+}
+
+@keyframes girlshands{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(16px);
+    }
+}
+
+@keyframes girlshand{
+    0%{
+        transform:rotateZ(0);
+    }
+    100%{
+        transform: rotateZ(3deg);
+    }
+}
+@keyframes hairs{
+    0%{
+        transform: translate(0,0);
+        transform: rotateZ(0);
+    }
+    100%{
+        transform: translate(3px,4px);
+        transform: rotateZ(15deg);
+    }
+}
+
+@keyframes oranges{
+    0%{
+        transform: translateX(0);
+        transform: rotateZ(0);
+    }
+    100%{
+        transform: translateX(100px);
+        transform: rotateZ(20deg);
+    }
+}
+@keyframes dot1{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-20px);
+    }
+}
+@keyframes dot2{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-20px);
+    }
+}
+@keyframes dot3{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-20px);
+    }
+}
+
+@keyframes orangesball{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(40px);
+    }
+}
+
+@keyframes messages{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(30px);
+    }
+}
+
+@keyframes frame{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(45px);
+    }
+}

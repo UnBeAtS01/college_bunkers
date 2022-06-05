@@ -1,5 +1,5 @@
 import Signin from './signin';
-import homepagesvg from '../assets/homesvg.svg';
+import HandleSvg from './HandleSvg';
 import './homepage.scss';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 const HomePage = () => {
@@ -19,7 +19,7 @@ const HomePage = () => {
 				<Signin />
 			</div>
 			<div className='second_div'>
-				<img className='second_div_svg' src={homepagesvg} alt='svg_animation' />
+				<HandleSvg />
 			</div>
 		</div>
 	);

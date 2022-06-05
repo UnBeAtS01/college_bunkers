@@ -7,8 +7,187 @@
 font-family: 'Exo', sans-serif;
 font-family: 'Open Sans', sans-serif;
 font-weight: bolder;
+position: relative;
+}
+.inside_page{
+  position: absolute;
+  z-index: -10;
+  width: 100%;
+  height: 100%;
 }
 .main-page{
-  margin-left:80px;
   margin-bottom:auto ;
+}
+h1 {
+  font-size: 4rem;
+}
+p {
+  font-size: 18px;
+  border-bottom: 1px solid orange;
+  opacity: 0.8;
+  color:orange;
+  font-family: cursive;
+}
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 200px;
+  padding-top: 100px;
+  width: 100vw !important;
+}
+
+.blue {
+  background: transparent;
+}
+
+.red {
+  background: #dd3f31;
+}
+
+.pink {
+  background: #ff0066;
+  overflow: hidden;
+}
+
+.dark {
+background-color: white;
+}
+.curve {
+  position: absolute;
+  height: 250px;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+
+.curve::before {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55%;
+  height: 100%;
+  transform: translate(85%, 60%);
+  background-color: hsl(0, 0%, 100%);
+}
+
+.curve::after {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55%;
+  height: 100%;
+  background-color: #ffffff;
+  transform: translate(-4%, 40%);
+  z-index: -1;
+}
+
+/* Bubble bg with plain CSS */
+
+.bubble::after {
+  content: '';
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+ background-color: white;
+   opacity: 0.2;
+  height: 85%;
+}
+
+/* Curved bg with SVG via https://www.shapedivider.app/ */
+
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.wave2{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  overflow: hidden;
+  line-height: 0;
+}
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(103% + 1.3px);
+  height: 262px;
+}
+.wave2 svg{
+position: relative;
+display:block;
+width: 100vw !important;
+height: 300px;
+}
+.wave .shape-fill {
+  fill: hsl(4, 100%, 77%);
+  opacity: 0.4;
+}
+
+/* SVG background image via https://haikei.app/ */
+
+.spacer {
+  aspect-ratio: 960/300;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.layer1 {
+  background-image: url('./assets/layer1.svg');
+}
+.layer2 {
+  background-image: url('./assets/layer2.svg');
+}
+
+.flip {
+  transform: rotate(180deg);
+}
+
+.blob-motion {
+  position: absolute;
+  transform: translateY(-20%);
+  z-index: 0;
+}
+
+.blob-content {
+  z-index: 1;
+}
+
+.blobs {
+  width: 100%;
+  background: url('./assets/blobs.svg') no-repeat bottom / cover;
+}
+.event_notice_div{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+.kidhar_div{
+  margin-left: 5vw !important;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin:10vh 2.5vh 2vh 2.5vh;
+  flex-wrap: wrap;
 }

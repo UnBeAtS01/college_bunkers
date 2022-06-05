@@ -2,10 +2,8 @@ import { useState } from 'react';
 import firebase from 'firebase/app';
 import { firestore, auth } from '../../firebase/firebaseconfig';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-
+import './createVote.scss';
 const CreateVote = () => {
-	const [question, setQuestion] = useState('');
-	const [idx, setIdx] = useState(2);
 	const [options, setOptions] = useState([{ question: '' }, { createdAt: '' }, { option: '', vote: 0 }, { option: '', vote: 0 }]);
 	const messagesRef = firestore.collection('JU_POLLS');
 	const query = messagesRef;
@@ -36,6 +34,8 @@ const CreateVote = () => {
 			const votecastby = [];
 			await messagesRef.add({ array, votecastby });
 			console.log('data added');
+			const arraytemp = [{ question: '' }, { createdAt: '' }, { option: '', vote: 0 }, { option: '', vote: 0 }];
+			setOptions(arraytemp);
 		}
 	};
 	const QuestionChange = (e) => {
@@ -44,7 +44,7 @@ const CreateVote = () => {
 		setOptions(array);
 	};
 	return (
-		<div>
+		<div className='create_polls'>
 			<input type='text' value={options[0].question} placeholder='your question' onChange={QuestionChange} />
 			{options &&
 				options.map((ele, idx) => {
@@ -54,9 +54,11 @@ const CreateVote = () => {
 						);
 					else return;
 				})}
-			<button onClick={Addoption}>+ADD</button>
-			<button onClick={DeleteOption}>-DELETE</button>
-			<button onClick={Publish}>PUBLISH</button>
+			<div className='button_div'>
+				<button onClick={Addoption}>+ADD</button>
+				<button onClick={DeleteOption}>-DELETE</button>
+				<button onClick={Publish}>PUBLISH</button>
+			</div>
 		</div>
 	);
 };

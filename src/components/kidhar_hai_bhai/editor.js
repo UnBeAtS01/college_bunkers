@@ -4,12 +4,11 @@ import 'quill/dist/quill.snow.css';
 
 import { io } from 'socket.io-client';
 
-
 const toolbarOptions = [];
 function Editors(props) {
 	const [socket, setSocket] = useState();
 	const [quill, setQuill] = useState();
-	const id=props.id;
+	const id = props.id;
 	useEffect(() => {
 		const quillServer = new Quill(`#${id}`, {
 			modules: { toolbar: toolbarOptions },

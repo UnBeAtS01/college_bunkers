@@ -1,0 +1,99 @@
+.event_main_div{
+    font-size:2vw;
+    .event_heading{
+        width: 50%;
+        height: 5vh;
+        background-color: purple;
+        color:white;
+        position: absolute;
+        z-index:3;
+        top:0;
+        left:10vh;
+        font-size:.8vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom-left-radius: 1vh;
+        border-bottom-right-radius: 1vh;
+            }
+    margin-left: 10vw;
+    margin-top:5vh;
+    background: rgba( 255, 255, 255, 0 );
+      backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+height: 64vh;
+width: 40vh;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+.event_image{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 55%;
+    img{
+       height: 60%;
+    }
+    .party_svg{
+        position: absolute;
+        width:30vh;
+        top:10vh;
+        left:0px;
+        z-index:-1;
+        overflow: hidden;
+        scale:.7;
+        opacity:.6;
+    }
+    
+    .event_name{
+     height:30% ;
+     font-family: 'Archivo', sans-serif;
+     font-family: 'Cedarville Cursive', cursive;
+color:rgb(255, 255, 255);
+font-size: 1.5vw;
+
+}
+    }
+}
+.input_event{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    input{
+        font-size:1.2vw;
+        margin-top: 5%;
+        width: 80%;
+        text-decoration: none;
+        background-color: transparent;
+        border:none;
+        color:white;
+        background: rgba( 255, 255, 255, 0.3 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 8.5px );
+-webkit-backdrop-filter: blur( 8.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+        &:focus{
+            outline:none !important;
+        }
+        &::placeholder{
+            color:white;
+            opacity: 0.6;
+    }
+    
+
+}
+button{
+    margin-top: 6%;
+    background-color: #4123ae;
+    padding:2px 5px;
+    color:white;
+    border:2px solid transparent;
+    &:hover{
+        background-color: #2300a0;
+        border:2px solid #513AA6;
+    }
+}
+}
