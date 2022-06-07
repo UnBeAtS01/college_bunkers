@@ -14,15 +14,22 @@ import ChatRoom from './components/chatroom/chatroom';
 import CollegeNotice from './components/college_notice/clg_notice';
 import VoteCard from './components/Polling/voteCard';
 import HomePage from './pages/homepage.js';
+
 function App() {
 	const [user] = useAuthState(auth);
 	const [profile, setUser] = useState(null);
+	const [chatshow, setChatshow] = useState(1);
 	useEffect(() => {
 		setUser(user);
 	}, [user]);
+	const handleChat = () => {
+		let temp = chatshow;
+		setChatshow(!temp);
+		console.log(chatshow);
+	};
 	return (
 		<div className='App'>
-			<Navbar profile={profile} />
+			<Navbar profile={profile} handleChat={handleChat} />
 			<div className='main-page'>
 				{!profile ? (
 					<HomePage />
@@ -90,11 +97,11 @@ function App() {
 							<div className='spacer layer2'></div>
 							<section className='blobs'></section>
 						</div>
-						<div className='event_notice_div'>
+						<div id='main' className='event_notice_div'>
 							<Event />
 							<CollegeNotice />
 						</div>
-						<div className='kidhar_div'>
+						<div id='kidharhai' className='kidhar_div'>
 							<Container name='BasketBall ground 🏀'>
 								<Basketball />
 							</Container>
@@ -108,10 +115,8 @@ function App() {
 								<SamjhaKar />
 							</Container>
 						</div>
-
-						<ChatRoom />
-
-						<VoteCard />
+						<VoteCard id='votecard' />
+						{chatshow ? <ChatRoom /> : ''}
 					</>
 				)}
 			</div>

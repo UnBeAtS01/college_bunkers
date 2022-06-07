@@ -4,7 +4,10 @@ import { FaHouseDamage, FaMusic, FaHeart, FaRocketchat, FaMapMarkerAlt } from 'r
 import { useEffect, useState } from 'react';
 import { auth } from '../../firebase/firebaseconfig.js';
 import './sidenav.scss';
-const Navbar = ({ profile }) => {
+
+import { Link } from 'react-scroll';
+
+const Navbar = ({ profile, handleChat }) => {
 	const [name, setName] = useState('');
 	const [pic, setPic] = useState('');
 	useEffect(() => {
@@ -30,12 +33,24 @@ const Navbar = ({ profile }) => {
 					''
 				)}
 				<Menu iconShape='circle'>
-					<MenuItem icon={<FaHouseDamage />}>Dashboard</MenuItem>
-					<MenuItem title='Components' icon={<FaMusic />}>
-						FaMusic
+					<MenuItem icon={<FaHouseDamage />}>
+						<Link to='main' spy={true} smooth={true}>
+							Main
+						</Link>
 					</MenuItem>
-					<MenuItem icon={<FaRocketchat />}>Dashboard</MenuItem>
-					<MenuItem icon={<FaMapMarkerAlt />}>Dashboard</MenuItem>
+					<MenuItem icon={<FaMusic />}>
+						<Link to='music' spy={true} smooth={true}>
+							music
+						</Link>
+					</MenuItem>
+					<MenuItem icon={<FaRocketchat />} onClick={handleChat}>
+						chat
+					</MenuItem>
+					<MenuItem icon={<FaMapMarkerAlt />}>
+						<Link to='kidharhai' spy={true} smooth={true}>
+							kidharhai
+						</Link>
+					</MenuItem>
 					{profile != null ? <SignOut /> : ''}
 				</Menu>
 				<SidebarFooter>

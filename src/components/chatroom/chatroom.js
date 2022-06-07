@@ -3,7 +3,7 @@ import firebase from 'firebase/app';
 //import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { useState, useEffect } from 'react';
-
+import { FaRegPaperPlane } from 'react-icons/fa';
 import './chatroom.scss';
 const ChatRoom = () => {
 	const messagesRef = firestore.collection('messages');
@@ -38,14 +38,17 @@ const ChatRoom = () => {
 				<form className='chatroom-input' onSubmit={sendMessage}>
 					<div className='chatroom-input-text-div'>
 						{' '}
-						<input value={formValue} onChange={(e) => setFormValue(e.target.value)} className='chatroom-input-text' />
+						<input
+							value={formValue}
+							onChange={(e) => setFormValue(e.target.value)}
+							className='chatroom-input-text'
+							placeholder='start typing here...'
+						/>
 					</div>
-					<div className='chatroom-input-button-div'>
-						{' '}
-						<button type='submit' className='chatroom-input-button'>
-							send
-						</button>
-					</div>
+
+					<button type='submit' className='chatroom-input-button'>
+						<FaRegPaperPlane />
+					</button>
 				</form>
 			</div>
 		</div>

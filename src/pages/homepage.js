@@ -7,7 +7,7 @@ const HomePage = () => {
 		<div className='home_page'>
 			<div className='first_div'>
 				<div className='first_div_title'>
-					<div>JU</div>
+					<div></div>
 					<div style={{ paddingLeft: 10 }}>#BUNKERS</div>
 				</div>
 				<div className='first_div_heading'>making college easy...</div>

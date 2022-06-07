@@ -4,16 +4,17 @@
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
-    width:30vw;
+    width:40vw;
     background: rgba( 255, 255, 255, 0.15 );
 box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 backdrop-filter: blur( 19.5px );
 -webkit-backdrop-filter: blur( 19.5px );
 border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
-margin-left: 10vw;
+margin-left: 20vw;
 margin-top: 5vw;
     input{
+        height: 20px;
         font-size:1.2vw;
         margin-top: 5%;
         width: 80%;
@@ -46,6 +47,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     button{
         padding:5px 8px;
         background: rgba( 255, 255, 255, 0.55 );
@@ -58,8 +60,33 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
         border: none;
         &:hover{
             background-color:transparent !important;
+            cursor: pointer;
         }
     }
 }
 
+}
+
+@media screen and (max-width:900px){
+    .create_polls{
+width: 70vw;
+color:black;
+input{
+    color:rgb(112, 112, 112);
+    &::placeholder{
+        color:grey;
+    }
+
+}
+.button_div{
+    flex-direction: column;
+    margin-top:10px;
+    button{
+        margin-top: 10px;
+        background-color: rgb(193, 47, 255);
+        color:white;
+    }
+}
+    }
+   
 }

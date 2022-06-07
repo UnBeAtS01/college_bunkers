@@ -102,7 +102,7 @@ background-color: white;
   width: 100%;
  background-color: white;
    opacity: 0.2;
-  height: 85%;
+  height: 100%;
 }
 
 /* Curved bg with SVG via https://www.shapedivider.app/ */
@@ -127,7 +127,7 @@ background-color: white;
   position: relative;
   display: block;
   width: calc(103% + 1.3px);
-  height: 262px;
+  height: 900px;
 }
 .wave2 svg{
 position: relative;
@@ -148,6 +148,7 @@ height: 300px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  height: 500px;
 }
 
 .layer1 {
@@ -174,6 +175,7 @@ height: 300px;
 .blobs {
   width: 100%;
   background: url('./assets/blobs.svg') no-repeat bottom / cover;
+  height: 400px;
 }
 .event_notice_div{
   display: flex;
@@ -190,4 +192,7 @@ height: 300px;
   justify-content: space-evenly;
   margin:10vh 2.5vh 2vh 2.5vh;
   flex-wrap: wrap;
+}
+@media screen  and (max-width: 1008px) {
+  
 }
