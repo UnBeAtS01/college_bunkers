@@ -15,6 +15,19 @@ border-radius: 20px;
     display: flex;
     align-items: center;
     flex-direction: column;
+    .chat_room{
+        background-color: #f04f39;
+        transform: rotateZ(-90deg);
+        width: 30%;
+        display: flex;
+        height: 30px;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        left:-75px;
+        top:110px;
+        font-size: 14px;
+    }
     .chatroom-chats{
         overflow-y: scroll;
         margin-top: 20px;

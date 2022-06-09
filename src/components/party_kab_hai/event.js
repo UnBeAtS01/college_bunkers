@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import { firestore, auth } from '../../firebase/firebaseconfig';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
@@ -11,12 +11,23 @@ const Event = () => {
 	const defaultimage = 'https://i.imgur.com/gkPgT6a.gif';
 	const [date, setEventdate] = useState('2001-07-13');
 	const [event, setEvent] = useState('');
+	const [todayshow, SetshowEvent] = useState([]);
 	const [data, setData] = useState([]);
 	const [eventImage, setEventimg] = useState(null);
 	const messagesRef = firestore.collection('Ju_bunker_events');
 	const query = messagesRef.orderBy('date').limit(25);
 	const [upcommingevent] = useCollectionData(query, { idField: 'id' });
 	console.log(upcommingevent);
+	useEffect(() => {
+		if (upcommingevent) {
+			for (let i = 0; i < upcommingevent.length; i++) {
+				if (upcommingevent[i].date >= formatDate(new Date())) {
+					SetshowEvent(upcommingevent[i]);
+					break;
+				}
+			}
+		}
+	}, [messagesRef]);
 
 	function formatDate(date) {
 		var d = new Date(date),
@@ -65,9 +76,13 @@ const Event = () => {
 		<div className='event_main_div'>
 			<div className='event_heading'>Upcomming Event</div>
 			<div className='event_image'>
-				<img src={`${upcommingevent ? upcommingevent[0].event_image : defaultimage}`} alt='loading...' />
+				<img src={`${upcommingevent ? todayshow.event_image : defaultimage}`} alt='loading...' />
 				<div className='event_name'>
-					{upcommingevent ? upcommingevent[0].text : 'No Event'}
+					{upcommingevent ? todayshow.text : 'No Event'}
+					<div style={{ marginTop: 5, textAlign: 'center' }} className='blink_me'>
+						{' '}
+						{upcommingevent ? todayshow.date : ''}
+					</div>
 					<img className='party_svg' src={partysvg} alt='img_party' />
 				</div>
 			</div>

@@ -13,8 +13,13 @@ const HomePage = () => {
 				<div className='first_div_heading'>making college easy...</div>
 				<div className='first_div_text'>Trying simplifying college lyf by bringing everything together.created by student for students</div>
 				<div className='first_div_follow'>
-					<span>follow me on:</span> <FaGithub className='first_div_logo' />
-					<FaLinkedin className='first_div_logo' />
+					<span>follow me on:</span>{' '}
+					<a href='https://github.com/UnBeAtS01'>
+						<FaGithub className='first_div_logo' />
+					</a>
+					<a href='https://www.linkedin.com/in/ankit-sinha-5318721ba/'>
+						<FaLinkedin className='first_div_logo' />
+					</a>
 				</div>
 				<Signin />
 			</div>

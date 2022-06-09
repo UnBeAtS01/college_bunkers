@@ -7,6 +7,7 @@
         z-index: 2;
         margin-top: 10px;
         width: 50%;
+        //background-color: #6C63FF;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -33,6 +34,7 @@ font-family: 'Cedarville Cursive', cursive;
             font-family: 'Open Sans', sans-serif;
             font-weight: 450;
             text-align: center;
+            width:80%;
         }
         .first_div_follow{
             //background-color: #6C63FF;
@@ -91,6 +93,7 @@ font-family: 'Cedarville Cursive', cursive;
     }
     .first_div{
         z-index:2;
+        margin-left: 40vw;
     }
     .first_div_title{
        flex-direction: column;

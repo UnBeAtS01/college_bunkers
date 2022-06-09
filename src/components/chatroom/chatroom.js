@@ -31,6 +31,7 @@ const ChatRoom = () => {
 	};
 	return (
 		<div className='chatroom'>
+			<div className='chat_room'>CHAT ROOM</div>
 			<div className='chatroom-chats'>
 				{auth.currentUser && messagedata && messagedata.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
 			</div>

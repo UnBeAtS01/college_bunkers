@@ -97,3 +97,15 @@ button{
     }
 }
 }
+
+.blink_me {
+    font-size: 13px;
+    animation: blinker 3s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: .1;
+     // font-size: 10px;
+    }
+  }
