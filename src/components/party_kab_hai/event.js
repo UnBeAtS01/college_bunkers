@@ -9,7 +9,7 @@ import './event.scss';
 import partysvg from '../../assets/party_hai.svg';
 const Event = () => {
 	const defaultimage = 'https://i.imgur.com/gkPgT6a.gif';
-	const [date, setEventdate] = useState('2001-07-13');
+	const [date, setEventdate] = useState('2022-07-13');
 	const [event, setEvent] = useState('');
 	const [todayshow, SetshowEvent] = useState([]);
 	const [data, setData] = useState([]);
