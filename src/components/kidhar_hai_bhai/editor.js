@@ -18,7 +18,7 @@ function Editors(props) {
 		setQuill(quillServer);
 	}, []);
 	useEffect(() => {
-		const socketServer = io('http://localhost:9000');
+		const socketServer = io('https://serverbunker.herokuapp.com/');
 		setSocket(socketServer);
 		return () => {
 			socketServer.disconnect();
