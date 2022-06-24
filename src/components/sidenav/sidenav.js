@@ -1,13 +1,13 @@
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarFooter } from 'react-pro-sidebar';
 import SignOut from '../../pages/signout.js';
-import { FaHouseDamage, FaMusic, FaHeart, FaRocketchat, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaHouseDamage, FaMusic, FaHeart, FaRegComments, FaStreetView } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import { auth } from '../../firebase/firebaseconfig.js';
 import './sidenav.scss';
 
 import { Link } from 'react-scroll';
 
-const Navbar = ({ profile, handleChat }) => {
+const Navbar = ({ profile, handleChat, OpenClassZone }) => {
 	const [name, setName] = useState('');
 	const [pic, setPic] = useState('');
 	useEffect(() => {
@@ -19,6 +19,10 @@ const Navbar = ({ profile, handleChat }) => {
 			setPic(photoURL);
 		}
 	}, [profile]);
+	const helper = () => {
+		handleChat();
+		OpenClassZone(0);
+	};
 	return (
 		<div className='sidenav'>
 			<ProSidebar className='nav_main' collapsed={true} collapsedWidth={'70'}>
@@ -34,22 +38,20 @@ const Navbar = ({ profile, handleChat }) => {
 				)}
 				<Menu iconShape='circle'>
 					<MenuItem icon={<FaHouseDamage />}>
-						<Link to='main' spy={true} smooth={true}>
+						<Link onClick={() => OpenClassZone(0)} to='main' spy={true} smooth={true}>
 							Main
 						</Link>
 					</MenuItem>
 					<MenuItem icon={<FaMusic />}>
-						<Link to='music' spy={true} smooth={true}>
+						<Link onClick={() => OpenClassZone(0)} to='music' spy={true} smooth={true}>
 							music
 						</Link>
 					</MenuItem>
-					<MenuItem icon={<FaRocketchat />} onClick={handleChat}>
+					<MenuItem icon={<FaRegComments />} onClick={helper}>
 						chat
 					</MenuItem>
-					<MenuItem icon={<FaMapMarkerAlt />}>
-						<Link to='kidharhai' spy={true} smooth={true}>
-							kidharhai
-						</Link>
+					<MenuItem onClick={() => OpenClassZone()} icon={<FaStreetView />}>
+						<div>classZone</div>
 					</MenuItem>
 					{profile != null ? <SignOut /> : ''}
 				</Menu>

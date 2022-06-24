@@ -14,11 +14,13 @@ import ChatRoom from './components/chatroom/chatroom';
 import CollegeNotice from './components/college_notice/clg_notice';
 import VoteCard from './components/Polling/voteCard';
 import HomePage from './pages/homepage.js';
+import Information from './pages/information';
 
 function App() {
 	const [user] = useAuthState(auth);
 	const [profile, setUser] = useState(null);
 	const [chatshow, setChatshow] = useState(1);
+	const [Class, showClass] = useState(0);
 	useEffect(() => {
 		setUser(user);
 	}, [user]);
@@ -27,12 +29,23 @@ function App() {
 		setChatshow(!temp);
 		console.log(chatshow);
 	};
+	const OpenClassZone = (val) => {
+		if (val == 0) {
+			showClass(val);
+			return;
+		} else {
+			let val2 = Class;
+			showClass(!val2);
+		}
+	};
 	return (
 		<div className='App'>
-			<Navbar profile={profile} handleChat={handleChat} />
+			<Navbar profile={profile} handleChat={handleChat} OpenClassZone={OpenClassZone} />
 			<div className='main-page'>
 				{!profile ? (
 					<HomePage />
+				) : Class ? (
+					<Information />
 				) : (
 					<>
 						<div className='inside_page'>

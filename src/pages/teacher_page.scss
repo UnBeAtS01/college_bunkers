@@ -1,0 +1,22 @@
+.Teacher_div{
+    margin-top: 100px;
+    margin-bottom: 20px;
+    .Teacher_div_studentZone{
+        margin-top: 20px;
+        font-size: 24px;
+        font-family: 'Archivo', sans-serif;
+font-family: 'Exo', sans-serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Press Start 2P', cursive;
+color:rgb(255, 154, 59);
+        text-align: center;
+        font-weight: 100 !important;
+        border-bottom: 2px solid rgb(255, 153, 58);
+        margin-left: auto ;
+        margin-right: auto;
+    }
+    .Teacher_div_cards{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

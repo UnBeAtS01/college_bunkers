@@ -76,7 +76,7 @@ font-family: 'Cedarville Cursive', cursive;
          
     }
 }
-@media screen and (max-width:1000px) {
+@media screen and (min-width:501px) and (max-width:1000px) {
     .home_page{
         max-width: 60vw;
         flex-direction: column;
@@ -113,5 +113,35 @@ font-family: 'Cedarville Cursive', cursive;
     }
     .first_div_logo{
         font-size: 4vw !important;
+    }
+}
+@media screen and (max-width:500px){
+    .home_page{
+        flex-direction: column;
+       
+            //background-color: #6C63FF;
+            .first_div_title{
+                font-size: 20px !important;
+            }
+            .first_div_heading{
+                font-size: 18px !important;
+            }
+            .first_div_follow{
+                font-size: 10px !important;
+            }
+            .first_div_text{
+                font-size: 16px !important;
+            }
+            .first_div_logo{
+                font-size: 18px !important;
+            }
+        
+        .second_div{
+            margin-top: 40px;
+           // background-color: aqua;
+            height: fit-content;
+            margin-right: auto;
+            margin-left: auto;
+        }
     }
 }
