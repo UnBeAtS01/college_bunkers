@@ -32,7 +32,63 @@ body {
   margin: 0;
   overflow-x: hidden;
 }
+.navbar_managed{
+  z-index: 1000;
+  position: fixed;
+  color:white;
+  text-align: center;
+  left:0;
+  top:20px;
+  width: 50px;
+  height: 30px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  background: rgba( 26, 26, 26, 0.85 );
+  backdrop-filter: blur( 17.5px );
+  -webkit-backdrop-filter: blur( 17.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.shortnav{
+  z-index: 1000;
+  position: fixed;
+  right:10px;
+  bottom: 20px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
+}
+.comment_shortnav{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgba( 255, 255, 255, 0.3 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 17.5px );
+-webkit-backdrop-filter: blur( 17.5px );
 
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.love_shortnav{
+  text-decoration: none;
+  color:#ff3586;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgba( 255, 255, 255, 0.3 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 17.5px );
+-webkit-backdrop-filter: blur( 17.5px );
+
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
 section {
   position: relative;
   display: flex;
@@ -59,6 +115,8 @@ section {
 .dark {
 background-color: white;
 }
+
+
 .curve {
   position: absolute;
   height: 250px;

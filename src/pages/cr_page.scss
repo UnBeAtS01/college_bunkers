@@ -18,3 +18,11 @@ color:rgb(154, 2, 255);
         flex-wrap: wrap;
     }
 }
+
+@media screen and (max-width:900px){
+    .CR_div{
+        .CR_div_studentZone{
+            font-size: 14px;
+        }
+    }
+}

@@ -20,3 +20,10 @@ color:rgb(255, 154, 59);
         flex-wrap: wrap;
     }
 }
+@media screen and (max-width:900px){
+    .Teacher_div{
+        .Teacher_div_studentZone{
+            font-size: 14px;
+        }
+    }
+}

@@ -15,19 +15,20 @@ import CollegeNotice from './components/college_notice/clg_notice';
 import VoteCard from './components/Polling/voteCard';
 import HomePage from './pages/homepage.js';
 import Information from './pages/information';
-
+import { FaAngleDoubleRight, FaAngleDoubleLeft, FaRegHeart, FaRegComment } from 'react-icons/fa';
 function App() {
 	const [user] = useAuthState(auth);
 	const [profile, setUser] = useState(null);
 	const [chatshow, setChatshow] = useState(1);
 	const [Class, showClass] = useState(0);
+	const [showNavbar, setNavBar] = useState(1);
 	useEffect(() => {
 		setUser(user);
 	}, [user]);
 	const handleChat = () => {
 		let temp = chatshow;
 		setChatshow(!temp);
-		console.log(chatshow);
+		//console.log(chatshow);
 	};
 	const OpenClassZone = (val) => {
 		if (val == 0) {
@@ -38,9 +39,34 @@ function App() {
 			showClass(!val2);
 		}
 	};
+	const ShowHideNavbar = () => {
+		//alert('clicked');
+		let val = showNavbar;
+		setNavBar(!val);
+	};
 	return (
 		<div className='App'>
-			<Navbar profile={profile} handleChat={handleChat} OpenClassZone={OpenClassZone} />
+			{showNavbar ? (
+				<>
+					<div className='navbar_managed' onClick={ShowHideNavbar}>
+						<FaAngleDoubleLeft />
+					</div>
+					<Navbar profile={profile} handleChat={handleChat} OpenClassZone={OpenClassZone} />
+				</>
+			) : (
+				<div className='navbar_managed' onClick={ShowHideNavbar}>
+					<FaAngleDoubleRight />
+				</div>
+			)}
+			<div className='shortnav' onClick={handleChat}>
+				<div className='comment_shortnav'>
+					<FaRegComment />
+				</div>
+				<a className='love_shortnav' href='https://github.com/UnBeAtS01'>
+					<FaRegHeart />
+				</a>
+			</div>
+
 			<div className='main-page'>
 				{!profile ? (
 					<HomePage />
