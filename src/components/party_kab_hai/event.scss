@@ -109,3 +109,26 @@ button{
      // font-size: 10px;
     }
   }
+
+  @media screen and (max-width:700px){
+    .event_main_div{
+        font-size:18px;
+    .event_image{
+        font-size: 18px;
+        .event_name{
+    color:rgb(11, 11, 11) !important;
+    font-size: 18px !important;
+    }
+    }
+    }
+    .input_event{
+        input{
+            color:black;
+            &::placeholder{
+                color:rgb(19, 19, 19);
+                opacity: 0.6;
+            }
+        }
+    }
+
+  }

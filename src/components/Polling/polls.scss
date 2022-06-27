@@ -63,9 +63,28 @@ width: 60vw;
             border-radius:10px;
         }
     }
-    
-    percentage_div{
-    }
+   
 }
 
 }
+
+@media screen and (max-width:900px){
+    .All_polls{
+        
+        font-size: 18px;
+         
+ 
+    
+    }
+    
+    .polls_container{
+       
+        .vote_display{
+           
+            font-size: 18px;
+        
+        }
+       
+    }
+    
+    }
