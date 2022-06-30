@@ -15,13 +15,15 @@ import CollegeNotice from './components/college_notice/clg_notice';
 import VoteCard from './components/Polling/voteCard';
 import HomePage from './pages/homepage.js';
 import Information from './pages/information';
-import { FaAngleDoubleRight, FaAngleDoubleLeft, FaRegHeart, FaRegComment } from 'react-icons/fa';
+import { FaAngleDoubleRight, FaAngleDoubleLeft, FaRegHeart, FaRegComment, FaGulp } from 'react-icons/fa';
+import CanteenOrder from './pages/CanteenOrder';
 function App() {
 	const [user] = useAuthState(auth);
 	const [profile, setUser] = useState(null);
 	const [chatshow, setChatshow] = useState(1);
 	const [Class, showClass] = useState(0);
 	const [showNavbar, setNavBar] = useState(1);
+	const [Canteen, setCanteen] = useState(0);
 	useEffect(() => {
 		setUser(user);
 	}, [user]);
@@ -44,6 +46,10 @@ function App() {
 		let val = showNavbar;
 		setNavBar(!val);
 	};
+	const CanteenShowHide = () => {
+		let val = Canteen;
+		setCanteen(!val);
+	};
 	return (
 		<div className='App'>
 			{showNavbar ? (
@@ -65,6 +71,9 @@ function App() {
 				<a className='love_shortnav' href='https://github.com/UnBeAtS01'>
 					<FaRegHeart />
 				</a>
+				<div className='comment_shortnav' onClick={CanteenShowHide}>
+					<FaGulp />
+				</div>
 			</div>
 
 			<div className='main-page'>
@@ -72,6 +81,8 @@ function App() {
 					<HomePage />
 				) : Class ? (
 					<Information />
+				) : Canteen ? (
+					<CanteenOrder />
 				) : (
 					<>
 						<div className='inside_page'>

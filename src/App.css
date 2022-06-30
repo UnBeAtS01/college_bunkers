@@ -53,13 +53,15 @@ body {
 .shortnav{
   z-index: 1000;
   position: fixed;
-  right:10px;
+  left:0;
+  right:0;
+  margin-left: auto;
+  margin-right: auto;
   bottom: 20px;
-  width: 100px;
+  width: 150px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  
 }
 .comment_shortnav{
   width: 40px;
@@ -74,6 +76,10 @@ backdrop-filter: blur( 17.5px );
 -webkit-backdrop-filter: blur( 17.5px );
 
 border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.comment_shortnav:hover{
+  cursor: pointer;
+  font-size: 28px !important;
 }
 .love_shortnav{
   text-decoration: none;
@@ -90,6 +96,10 @@ backdrop-filter: blur( 17.5px );
 -webkit-backdrop-filter: blur( 17.5px );
 
 border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.love_shortnav:hover{
+  color:#ff0066;
+  font-size:28px;
 }
 section {
   position: relative;

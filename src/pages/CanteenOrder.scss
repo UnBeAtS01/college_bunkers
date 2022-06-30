@@ -1,0 +1,203 @@
+.canteen-order{
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-repeat: no-repeat;
+  width: 100vw;
+  min-height:100%;
+  position: absolute;
+  background-repeat: repeat;
+  .bill_amount{
+    font-size: 16px;
+    font-family: cursive;
+    color: #FFFFFF;
+    background-color: #FD5243;
+    padding:5px 10px;
+    border-radius:10px;
+    height: 50px;
+    z-index: 101;
+    position: absolute;
+    top:50px;
+    right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .menu_card{
+    margin-top: 10vh;
+    .menu_card_heading{
+      font-size: 16px;
+      font-family: cursive;
+      color: #FFFFFF;
+      background-color: #FD5243;
+      padding:10px 10px;
+      border-radius:10px;
+    }
+    .menu_card_listdiv{
+    height: 72vh;
+    overflow: scroll;
+    padding: 20px 20px;
+    border:2px solid #FD5243;
+    border-radius: 10px;
+    }
+  }
+  .canteen_container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  .canteen_portal{
+    color:#FFFFFF;
+    font-size: 24px;
+    text-align: center;
+    font-family: cursive;
+    position: fixed;
+    top:0px;
+    left:0;
+    right:0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index:100;
+    background-color: #161616;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+.canteen_item_div{
+  width: 300px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top:20px;
+    position: relative;
+    img{
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+    .name{
+      font-size: 20px;
+      font-family: cursive;
+      font-weight: 300;
+      margin:10px;
+      position: absolute;
+      left:50px;
+      background: rgba( 31, 31, 31, 0.7 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 16px );
+-webkit-backdrop-filter: blur( 16px );
+border-radius: 10px;
+padding: 5px 4px;
+color:white;
+opacity: 0.6;
+    }
+    .price{
+       font-size: 24px;
+       font-family: sans-serif;
+       font-weight: 400;
+       margin:10px;
+       padding:3px;
+       background-color: rgb(194, 89, 194);
+       position: absolute;
+       left:40px;
+       top:-20px;
+       border-radius: 50%;
+       background-color: yellow;
+    }
+    .add_icon_item{
+      color:white;
+      background-color: #ff3b29;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px sollid #FD5243;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      &:hover{
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        font-size:22px ;
+      }
+
+      
+    }
+}
+
+.orders_items{
+  background: rgba( 25, 25, 25, 0.75 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 20px );
+-webkit-backdrop-filter: blur( 20px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+padding: 20px 10px;
+margin-top: 10vh;
+  .Your_orders{
+    margin-top: 10px;
+    text-align: center;
+    span{
+      font-size: 16px;
+font-family: cursive;
+color: #FFFFFF;
+background-color: #FD5243;
+padding:5px 10px;
+border-radius:10px;
+    }
+  }
+  .orders_view{
+    overflow: scroll;
+    height: 72vh;
+    padding: 20px 20px;
+    border:2px solid #ff6a5c;
+    border-radius: 10px;
+  }
+  .your_orders_ele{
+    width: 300px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top:20px;
+    position: relative;
+    img{
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+    .your_orders_ele_name{
+      font-size: 20px;
+      font-family: cursive;
+      font-weight: 300;
+      margin:10px;
+      position: absolute;
+      left:50px;
+      background: rgba( 31, 31, 31, 0.7 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 16px );
+-webkit-backdrop-filter: blur( 16px );
+border-radius: 10px;
+padding: 5px 4px;
+color:white;
+opacity: 0.6;
+    }
+    .your_orders_ele_price{
+      font-size: 24px;
+      font-family: sans-serif;
+      font-weight: 400;
+      margin:10px;
+      padding:3px;
+      background-color: rgb(194, 89, 194);
+      position: absolute;
+      left:40px;
+      top:-20px;
+      border-radius: 50%;
+      background-color: yellow;
+    }
+  }
+}
+
+
+}
