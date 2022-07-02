@@ -17,9 +17,6 @@ const HomePage = () => {
 					<a href='https://github.com/UnBeAtS01'>
 						<FaGithub className='first_div_logo' />
 					</a>
-					<a href='https://www.linkedin.com/in/ankit-sinha-5318721ba/'>
-						<FaLinkedin className='first_div_logo' />
-					</a>
 				</div>
 				<Signin />
 			</div>
