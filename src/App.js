@@ -28,31 +28,38 @@ function App() {
 		setUser(user);
 	}, [user]);
 	const handleChat = () => {
-		let temp = chatshow;
-		setChatshow(!temp);
+		if (!Canteen) {
+			let temp = chatshow;
+			setChatshow(!temp);
+		}
 		//console.log(chatshow);
 	};
 	const OpenClassZone = (val) => {
-		if (val == 0) {
-			showClass(val);
-			return;
-		} else {
-			let val2 = Class;
-			showClass(!val2);
+		if (!Canteen) {
+			if (val == 0) {
+				showClass(val);
+				return;
+			} else {
+				let val2 = Class;
+				showClass(!val2);
+			}
 		}
 	};
 	const ShowHideNavbar = () => {
 		//alert('clicked');
-		let val = showNavbar;
-		setNavBar(!val);
+		if (!Canteen) {
+			let val = showNavbar;
+			setNavBar(!val);
+		}
 	};
 	const CanteenShowHide = () => {
 		let val = Canteen;
 		setCanteen(!val);
+		setNavBar(0);
 	};
 	return (
 		<div className='App'>
-			{showNavbar ? (
+			{showNavbar && profile ? (
 				<>
 					<div className='navbar_managed' onClick={ShowHideNavbar}>
 						<FaAngleDoubleLeft />
@@ -64,17 +71,25 @@ function App() {
 					<FaAngleDoubleRight />
 				</div>
 			)}
-			<div className='shortnav' onClick={handleChat}>
-				<div className='comment_shortnav'>
-					<FaRegComment />
+			{profile ? (
+				<div className='shortnav' onClick={handleChat}>
+					<div className='comment_shortnav'>
+						<FaRegComment />
+					</div>
+					<a className='love_shortnav' href='https://github.com/UnBeAtS01'>
+						<FaRegHeart />
+					</a>
+					{!Class ? (
+						<div className='comment_shortnav' onClick={() => CanteenShowHide()}>
+							<FaGulp />
+						</div>
+					) : (
+						''
+					)}
 				</div>
-				<a className='love_shortnav' href='https://github.com/UnBeAtS01'>
-					<FaRegHeart />
-				</a>
-				<div className='comment_shortnav' onClick={CanteenShowHide}>
-					<FaGulp />
-				</div>
-			</div>
+			) : (
+				''
+			)}
 
 			<div className='main-page'>
 				{!profile ? (
