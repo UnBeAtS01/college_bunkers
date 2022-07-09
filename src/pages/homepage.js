@@ -1,7 +1,7 @@
 import Signin from './signin';
 import HandleSvg from './HandleSvg';
 import './homepage.scss';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaLinkedinIn } from 'react-icons/fa';
 const HomePage = () => {
 	return (
 		<div className='home_page'>
@@ -16,6 +16,9 @@ const HomePage = () => {
 					<span>follow me on:</span>{' '}
 					<a href='https://github.com/UnBeAtS01'>
 						<FaGithub className='first_div_logo' />
+					</a>
+					<a href='https://www.linkedin.com/in/ankit-sinha-5318721ba/'>
+						<FaLinkedinIn className='first_div_logo' />
 					</a>
 				</div>
 				<Signin />
