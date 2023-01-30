@@ -65,7 +65,7 @@ const Navbar = ({ profile, handleChat, OpenClassZone }) => {
 						<br />
 						<div style={{ textAlign: 'center' }}>By</div>
 						<br />
-						<div style={{ textAlign: 'center' }}>ANKIT SINHA</div>
+						<div style={{ textAlign: 'center' }}>EIE</div>
 					</div>
 				</SidebarFooter>
 			</ProSidebar>

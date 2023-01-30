@@ -13,7 +13,7 @@ const data = {
 		'Admin',
 	],
 	ProfileImg: [
-		'https://www.linkpicture.com/q/Screenshot_20220619-163321.png',
+		'https://www.linkpicture.com/q/WhatsApp-Image-2023-01-30-at-2.30.04-PM.jpeg',
 		'https://www.linkpicture.com/q/dg.jpg',
 		'https://www.linkpicture.com/q/plimg.jpg',
 		'https://www.linkpicture.com/q/bp.jpg',

@@ -2,6 +2,7 @@ import { firestore, auth } from '../firebase/firebaseconfig';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
+import paydone from '../assets/payment.svg';
 import './CanteenOrder.scss';
 const CanteenOrder = () => {
 	const itemList = firestore.collection('CanteenItemList');
@@ -9,7 +10,21 @@ const CanteenOrder = () => {
 	const [orders] = useCollectionData(canteenOrders, { idField: 'id' });
 	const [listitem] = useCollectionData(itemList, { idField: 'id' });
 	const { uid } = auth.currentUser;
+	const [paym, setPaym] = useState(0);
+	const [Done, setDone] = useState(0);
+	const paidCall = () => {
+		let temppaym = paym;
+		setTimeout(() => {
+			setPaym(1);
+		}, 5000);
+		setTimeout(() => {
+			setPaym(0);
+			setDone(1);
+		}, 13000);
+	};
 	const addItem = async (ele) => {
+		setDone(0);
+		setPaym(0);
 		console.log('inside');
 		let orderstemp = orders;
 		let flag = 0;
@@ -17,6 +32,8 @@ const CanteenOrder = () => {
 		await canteenOrders.add({ ...ele, u_id: uid, createdAt: todaydate });
 	};
 	const minus_Items = (ele) => {
+		setDone(0);
+		setPaym(0);
 		canteenOrders.doc(ele.id).delete();
 	};
 	const [sum, setSum] = useState(0);
@@ -58,56 +75,80 @@ const CanteenOrder = () => {
 		setSum(tempsum);
 	}, [orders]);
 	return (
-		<div className='canteen-order'>
-			<div className='canteen_portal'>COLLEGE CANTEEN PORTAL</div>
-			<div className='canteen_container'>
-				<div className='bill_amount'> Total Bill {sum}</div>
-				<div className='pay'>
-					<img src='https://www.linkpicture.com/q/WhatsApp-Image-2022-07-03-at-12.33.44-AM.jpeg' alt='scan' className='pay_bill' />
-					<span>scan and pay</span>
+		<div style={{ display: 'flex' }}>
+			{paym ? (
+				<div
+					style={{
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
+						width: '100vw',
+						height: '100vh',
+						backgroundColor: 'black',
+					}}
+				>
+					<img style={{ display: 'flex', width: '50%', height: '50%' }} src={paydone} alt='payment done' />
 				</div>
-				<div className='orders_items'>
-					<div className='Your_orders'>
-						{' '}
-						<span>YOUR TOMORROW ITEMS</span>
-					</div>
-					<div style={{ height: '10px' }}></div>
-					<div className='orders_view'>
-						{orders &&
-							orders.map((ele) => {
-								if (ele.u_id === uid && is_valid(ele.createdAt)) {
-									return (
-										<div className='your_orders_ele'>
-											<img src={ele.image} alt='pic' />
-											<div className='your_orders_ele_name'>{ele.name}</div>
-											<div className='your_orders_ele_price'>{ele.price}</div>
-											<div onClick={() => minus_Items(ele)} className='add_icon_item'>
-												<FaMinus />
+			) : (
+				<div className='canteen-order'>
+					<div className='canteen_portal'>COLLEGE CANTEEN PORTAL</div>
+					<div className='canteen_container'>
+						<div className='bill_amount'> Total Bill {sum}</div>
+						{Done ? (
+							<div className='bill_amount' style={{ backgroundColor: 'green' }}>
+								Payment Completed amt:{sum}
+							</div>
+						) : (
+							''
+						)}
+						<div className='pay'>
+							<img src='https://www.linkpicture.com/q/WhatsApp-Image-2022-07-03-at-12.33.44-AM.jpeg' alt='scan' className='pay_bill' />
+							<span onClick={() => paidCall()}>scan and pay</span>
+						</div>
+						<div className='orders_items'>
+							<div className='Your_orders'>
+								{' '}
+								<span>YOUR TOMORROW ITEMS</span>
+							</div>
+							<div style={{ height: '10px' }}></div>
+							<div className='orders_view'>
+								{orders &&
+									orders.map((ele) => {
+										if (ele.u_id === uid && is_valid(ele.createdAt)) {
+											return (
+												<div className='your_orders_ele'>
+													<img src={ele.image} alt='pic' />
+													<div className='your_orders_ele_name'>{ele.name}</div>
+													<div className='your_orders_ele_price'>{ele.price}</div>
+													<div onClick={() => minus_Items(ele)} className='add_icon_item'>
+														<FaMinus />
+													</div>
+												</div>
+											);
+										}
+									})}
+							</div>
+						</div>
+						<div className='menu_card'>
+							<div className='menu_card_heading'>what we cooking tomorrow....</div>
+							<div style={{ height: '10px' }}></div>
+							<div className='menu_card_listdiv'>
+								{listitem &&
+									listitem.map((ele) => (
+										<div className='canteen_item_div' key={ele.id}>
+											<img src={ele.image} alt='image_icon' />
+											<div className='name'>{ele.name}</div>
+											<div className='price'>{ele.price}</div>
+											<div onClick={() => addItem(ele)} className='add_icon_item'>
+												<FaPlus />
 											</div>
 										</div>
-									);
-								}
-							})}
+									))}
+							</div>
+						</div>
 					</div>
 				</div>
-				<div className='menu_card'>
-					<div className='menu_card_heading'>what we cooking tomorrow....</div>
-					<div style={{ height: '10px' }}></div>
-					<div className='menu_card_listdiv'>
-						{listitem &&
-							listitem.map((ele) => (
-								<div className='canteen_item_div' key={ele.id}>
-									<img src={ele.image} alt='image_icon' />
-									<div className='name'>{ele.name}</div>
-									<div className='price'>{ele.price}</div>
-									<div onClick={() => addItem(ele)} className='add_icon_item'>
-										<FaPlus />
-									</div>
-								</div>
-							))}
-					</div>
-				</div>
-			</div>
+			)}
 		</div>
 	);
 };

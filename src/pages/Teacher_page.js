@@ -35,7 +35,7 @@ const data = {
 	ProfileImg: [
 		'https://www.linkpicture.com/q/default.webp',
 		'https://www.linkpicture.com/q/default.webp',
-		'https://www.linkpicture.com/q/runumam.webp',
+		'https://www.linkpicture.com/q/default.webp',
 		'https://www.linkpicture.com/q/bdsir.jpg',
 		'https://www.linkpicture.com/q/kdbsir.jfif',
 		'https://www.linkpicture.com/q/brbsir.jpg',
